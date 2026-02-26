@@ -1,0 +1,27 @@
+# @ author : Samuel Emiliano Perez Montiel
+class Cuenta :
+  #Este es el metodo constructor, que inicializa
+  #a los atributos de una clase
+  def __init__(self, valor, deuda):
+    self.saldo = valor
+    self.credito = deuda
+  def depositar (self, cantidad):
+    self.saldo = self.saldo + cantidad
+  def retirar (self, cantidad_n):
+    self.saldo = self.saldo - cantidad_n
+
+    #Menu.py
+#from Cuenta import *
+class Menu :
+  pass
+print("Desde el Menu")
+cuenta1 = Cuenta(3000, 5000)
+print("Este es tu saldo disponible:", cuenta1.saldo)
+print("Esta es tu deuda de credito a pagar:", cuenta1.credito)
+cuenta1.depositar (5000)
+print("Probando el deposito")
+print("Este es tu nuevo saldo tras el deposito:", cuenta1.saldo)
+cuenta1.retirar (1200)
+print("Probando el retiro")
+print("Este es tu nuevo saldo tras el retiro:", cuenta1.saldo)
+print("Gracias por usar bancos montilianos")
