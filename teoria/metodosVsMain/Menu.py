@@ -1,26 +1,41 @@
-class Menu:
-    def __init__(self):
-        self.mensajeDeBienvenida = "¡Bienvenido a Bancos Montilianos!"
+# Autor: Samuel Emiliano Perez Montiel
+# Descripción: Clase encargada de la interacción y despliegue de opciones.
 
-    def darBienvenida(self):
-        print(self.mensajeDeBienvenida)
+from Cuenta import Cuenta
+
+class Menu:
+    def __init__(self, mensaje):
+        """Inicializa el mensaje de bienvenida"""
+        self.mensaje = mensaje
+
+    def dar_bienvenida(self):
+        """Imprime el saludo inicial"""
+        print(f"\n*** {self.mensaje} ***")
 
     def despliegaMenu(self):
-        print("\n--- MENÚ DE OPCIONES ---")
-        print("1. Depositar")
-        print("2. Retirar")
-        print("3. Consultar Saldo")
+        """Muestra las opciones y retorna la elección del usuario"""
+        print("\n1. Retirar")
+        print("2. Depositar")
+        print("3. Información")
         print("4. Salir")
-        return input("Elige una opción: ")
+        return input("¿Qué desea hacer?: ")
 
     def procesaOpcion(self, opcion, cuenta):
+        """Ejecuta la acción correspondiente según la opción elegida"""
         if opcion == "1":
-            monto = float(input("Cantidad a depositar: "))
-            cuenta.depositar(monto)
+            c = float(input("Ingrese la cantidad a retirar: "))
+            cuenta.retirar(c)
+            print(f"Nuevo saldo: {cuenta.saldo}")
+            
         elif opcion == "2":
-            monto = float(input("Cantidad a retirar: "))
-            cuenta.retirar(monto)
+            c = float(input("Ingrese la cantidad a depositar: "))
+            cuenta.depositar(c)
+            print(f"Nuevo saldo: {cuenta.saldo}")
+            
         elif opcion == "3":
-            print(f"Tu saldo actual es: {cuenta.saldo}")
+            cuenta.informacion()
+            
+        elif opcion == "4":
+            print("Saliendo del sistema...")
         else:
-            print("Opción no válida o saliendo...")
+            print("Opción no válida.")
