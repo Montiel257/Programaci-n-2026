@@ -1,21 +1,42 @@
+"""
+Created on Marzo, 2026
+@author: Montiel257
+"""
+
 from Cuenta import *
-from Menu import *
 from Cliente import *
+from Menu import *
 
-class Main:
-    pass
+menu = Menu("Bienvenido al Banco")
 
-print("--- PROBANDO EL BANCO ---")
+cuenta1 = Cuenta(300, "debito", "12/02/2019")
+cliente1 = Cliente("Samuel", cuenta1)
 
-cuenta1 = Cuenta(300, 'C', "Samuel Perez")
+menu.bienvenida()
 
-mi_menu = Menu("Bienvenido al cajero automatico")
-mi_menu.darBienvenida()
+while True:
 
-opcion_elegida = mi_menu.despliegaMenu()
+    op = menu.opciones()
 
-mi_menu.procesaOpcion(opcion_elegida, cuenta1)
+    if op == "1":
+        cant = float(input("Cantidad: "))
+        if cuenta1.depositar(cant):
+            print("Deposito correcto")
+        else:
+            print("Error")
 
-print("\n--- PROBANDO EL CLIENTE ---")
-cliente1 = Cliente("Samuel", "Mi casa", 21)
-cliente1.imprimirDetalles()
+    elif op == "2":
+        cant = float(input("Cantidad: "))
+        if cuenta1.retirar(cant):
+            print("Retiro correcto")
+        else:
+            print("No hay saldo")
+
+    elif op == "3":
+        print(cliente1)
+
+    elif op == "4":
+        break
+
+    else:
+        print("Opcion invalida")
