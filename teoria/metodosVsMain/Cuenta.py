@@ -1,15 +1,26 @@
+"""
+Created on Marzo, 2026
+@author: Montiel257
+"""
+
 class Cuenta:
-    def __init__(self, valor, tipo, titular):
-        self.cantidad = valor
+
+    def __init__(self, saldo, tipo, fechaCreacion):
+        self.saldo = saldo
         self.tipo = tipo
-        self.titular = titular
+        self.fechaCreacion = fechaCreacion
 
-    def depositar(self, monto):
-        self.cantidad = self.cantidad + monto
-        print("Depositaste:", monto)
-        print("Tu nuevo saldo es:", self.cantidad)
+    def depositar(self, cantidad):
+        if cantidad <= 0:
+            return False
+        self.saldo += cantidad
+        return True
 
-    def retirar(self, monto):
-        self.cantidad = self.cantidad - monto
-        print("Retiraste:", monto)
-        print("Tu nuevo saldo es:", self.cantidad)
+    def retirar(self, cantidad):
+        if cantidad > self.saldo:
+            return False
+        self.saldo -= cantidad
+        return True
+
+    def __str__(self):
+        return "Saldo: " + str(self.saldo) + ", Tipo: " + self.tipo
