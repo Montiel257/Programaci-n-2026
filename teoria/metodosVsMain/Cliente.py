@@ -1,10 +1,13 @@
-class Cliente:
-    def __init__(self, nombre, direccion, edad):
-        self.nombre = nombre
-        self.direccion = direccion
-        self.edad = edad
+"""
+Created on Marzo, 2026
+@author: Montiel257
+"""
 
-    def imprimirDetalles(self):
-        print("Nombre del cliente:", self.nombre)
-        print("Direccion:", self.direccion)
-        print("Edad:", self.edad)
+class Cliente:
+
+    def __init__(self, nombre, cuenta):
+        self.nombre = nombre
+        self.cuenta = cuenta
+
+    def __str__(self):
+        return "Cliente: " + self.nombre + " | " + str(self.cuenta)
