@@ -1,3 +1,3 @@
-# Sistema bancario
+# Inversiones bancarias
 ## Introducción
-### Este es el inicio del proyecto sobre un sistema bancario que nos permita almacenar datos de cuentas bancarias y realizar operaciones
+### Este sistema permite realizar inversiones mediante la compra de acciones de empresas que coticen en bolsa
